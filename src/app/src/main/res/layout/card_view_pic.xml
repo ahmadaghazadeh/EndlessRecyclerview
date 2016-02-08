@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="picData"
+            type="aghazadeh.ahmad.endlessrecyclerview.PicData" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_margin="8dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="10dp">
+
+        <RelativeLayout
+            android:id="@+id/card_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             >
+
+            <ImageView
+                android:src="@drawable/error"
+                app:paletteResId="@{@id/card_holder}"
+                app:imageUrl="@{picData.getUrl}"
+                app:error="@{@drawable/error}"
+                android:id="@+id/imgPic"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgPic"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:text="@{picData.getTitle}"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTitle"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:text="@{picData.getDesc}"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</layout>
+
